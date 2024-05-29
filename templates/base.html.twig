@@ -7,6 +7,7 @@
         <title>{% block title %}Bienvenue!{% endblock %}</title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
             {# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> #}
             <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" type="image/x-icon" />
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
@@ -19,7 +20,33 @@
     </head>
     <body>
         {% include 'header.html.twig' %}
-            {% block body %}{% endblock %}
+        {% include '_components/_hero.html.twig' %}
+        {% if app.user and app.user.isVerified == false %}
+        <!-- Toast -->
+        <div class="fixed bottom-4 right-4 w-auto bg-yellow-500 text-sm text-white rounded-xl shadow-lg mb-4 z-[999]" role="alert">
+            <div class="flex items-center justify-between p-4">
+                <div class="flex-1">
+                    <p class="inline">Bonjour, <strong>{{ app.user.pseudo }}</strong>, votre compte n'est pas encore activé. Un lien d'activation vous a été envoyé par mail.</p>
+                    <a class="inline ml-2" href="{{ path('resend_verif') }}" target="_blank">Pas de lien ? <strong>Renvoyez le lien d'activation.</strong></a>
+                </div>
+                <div class="ml-4">
+                    <button type="button" class="inline-flex flex-shrink-0 justify-center items-center size-5 rounded-lg text-white hover:text-white opacity-50 hover:opacity-100 focus:outline-none focus:opacity-100" onclick="this.parentElement.parentElement.parentElement.remove()">
+                        <span class="sr-only">Close</span>
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- End Toast -->
+        {% endif %}
+
+        {% include '_partials/_flash.html.twig' %}
+      
+        {% block body %}{% endblock %}
 
         {% include 'footer.html.twig' %}        
         {% include '_partials/_assets.html.twig' %} {# Inclure les chemins d'assets ici #}
