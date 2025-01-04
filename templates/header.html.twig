@@ -69,7 +69,7 @@
 										{# <a href="{{path('app_register')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
 											Page Inscription
 										</a>
-										<a href="{{path('app_connexion')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+										<a href="{{ path('app_login')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
 											Page Connexion
 										</a> #}
 									</div>
@@ -107,10 +107,10 @@
 							</span>
 						</label>
 						<div class="hidden sm:flex">
-							<a href="signin.html" class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70">
+							<a href="{{ path('app_register')}}" class="loginBtn px-[22px] py-2 text-base font-medium text-white hover:opacity-70">
 								S'inscrire
 							</a>
-							<a href="signup.html" class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">
+							<a href="{{ path('app_login')}}" class="signUpBtn rounded-md bg-white bg-opacity-20 px-6 py-2 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark">
 								Connexion
 							</a>
 						</div>
@@ -170,7 +170,7 @@
 										{# <a href="{{path('app_register')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
 											Page Inscription
 										</a>
-										<a href="{{path('app_connect')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
+										<a href="{{path('app_login')}}" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
 											Page Connexion
 										</a>
 										<a href="404.html" class="block rounded px-4 py-[10px] text-sm text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary">
@@ -211,10 +211,10 @@
 							</span>
 						</label>
 						<div class="hidden sm:flex">
-							<a href="signin.html" class="loginBtn px-[22px] py-2 text-base font-medium text-dark hover:opacity-70 dark:text-white">
+							<a href="{{ path('app_register')}}" class="loginBtn px-[22px] py-2 text-base font-medium text-dark hover:opacity-70 dark:text-white">
 								S'inscrire
 							</a>
-							<a href="signup.html" class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md signUpBtn bg-primary hover:bg-blue-dark">
+							<a href="{{ path('app_login')}}" class="px-6 py-2 text-base font-medium text-white duration-300 ease-in-out rounded-md signUpBtn bg-primary hover:bg-blue-dark">
 								Connexion
 							</a>
 						</div>

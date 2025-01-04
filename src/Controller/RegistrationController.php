@@ -55,7 +55,7 @@ class RegistrationController extends AbstractController
             $token = $jwt->generate($header, $payload, $this->getParameter('app.jwtsecret'));
              //On envoie un mail
              $mail->send(
-                'contact@voyageur-plus.jeremiecode.fr',
+                'contact@symfony-boilerplate.jeremiecode.fr',
                 $user->getEmail(),
                 'Activation de votre compte',
                 'register',

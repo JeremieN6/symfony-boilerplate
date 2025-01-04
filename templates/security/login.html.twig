@@ -9,8 +9,12 @@
     {% endif %}
 
     {% if app.user %}
-    <div class="mb-3">
-        Vous êtes connecté en tant que {{ app.user.userIdentifier }}. <a href="{{ path('app_logout') }}">Déconnexion</a>
+    <div class="fixed top-4 right-4 w-auto bg-yellow-400 text-sm text-white rounded-xl shadow-lg mb-4 z-50">
+        <div class="flex items-center justify-between p-4">
+        <div class="flex-1">
+        Vous êtes connecté en tant que {{ app.user.userIdentifier }}. <a href="{{ path('app_logout') }}" class="text-yellow-600 hover:underline">Déconnexion</a>
+        </div>
+        </div>
     </div>
     {% endif %}
 
@@ -22,7 +26,7 @@
                     <div class="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white dark:bg-dark-2 py-14 px-8 text-center sm:px-12 md:px-[60px]"
                         data-wow-delay=".15s">
                         <div class="mb-10 text-center">
-                            <a href="javascript:void(0)" class="mx-auto inline-block max-w-[160px]">
+                            <a href="{{ path('app_main')}}" class="mx-auto inline-block max-w-[160px]">
                                 <img src="{{ asset('images/logo/logo.svg')}}" alt="logo" class="dark:hidden" />
                                 <img src="{{ asset('images/logo/logo-white.svg')}}" alt="logo"
                                     class="hidden dark:block" />
@@ -97,7 +101,7 @@
                         </a>
                         <p class="text-base text-body-secondary">
                             Vous n'avez pas de compte ?
-                            <a href="signup.html" class="text-primary hover:underline">
+                            <a href="{{ path('app_register')}}" class="text-primary hover:underline">
                                 S'inscrire
                             </a>
                         </p>
