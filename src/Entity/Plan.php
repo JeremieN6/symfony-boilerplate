@@ -40,6 +40,9 @@ class Plan
     #[ORM\OneToMany(targetEntity: Subscription::class, mappedBy: 'plan')]
     private Collection $subscriptions;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->subscriptions = new ArrayCollection();
@@ -121,7 +124,10 @@ class Plan
 
         return $this;
     }
-
+    public function __toString(): string
+    {
+        return $this->name ? (string) $this->name : '';
+    }
     /**
      * @return Collection<int, Subscription>
      */
@@ -151,4 +157,17 @@ class Plan
 
         return $this;
     }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+    
 }
